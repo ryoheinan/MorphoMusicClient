@@ -17,13 +17,18 @@
 
 <script>
 import liff from '@line/liff'
+require('dotenv').config()
+const { LIFFID } = process.env
 
 export default {
   head: {
     title: 'Morphomusic',
   },
+  env: {
+    LIFFID,
+  },
   mounted() {
-    liff.init()
+    liff.init({ liffId: process.env.LIFFID })
   },
 }
 </script>
