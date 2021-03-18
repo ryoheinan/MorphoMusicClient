@@ -34,8 +34,6 @@ let liff
 if (process.client) {
   liff = require('@line/liff')
 }
-require('dotenv').config()
-const { LIFFID } = process.env
 
 export default {
   data() {
@@ -52,9 +50,6 @@ export default {
   },
   head: {
     title: 'Morphomusic',
-  },
-  env: {
-    LIFFID,
   },
   created() {
     if (process.client) {

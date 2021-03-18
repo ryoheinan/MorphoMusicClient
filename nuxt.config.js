@@ -1,4 +1,8 @@
 // import colors from 'vuetify/es5/util/colors'
+import path from 'path'
+import fs from 'fs'
+require('dotenv').config()
+const { LIFFID } = process.env
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
@@ -6,6 +10,9 @@ export default {
 
   generate: {
     fallback: true,
+  },
+  env: {
+    LIFFID,
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -80,5 +87,17 @@ export default {
         fs: 'empty',
       }
     },
+  },
+
+  server: {
+    port: 3000,
+    host: 'localhost',
+    https:
+      process.env.NODE_ENV === 'production'
+        ? {}
+        : {
+            key: fs.readFileSync(path.resolve(__dirname, 'localhost-key.pem')),
+            cert: fs.readFileSync(path.resolve(__dirname, 'localhost.pem')),
+          },
   },
 }
