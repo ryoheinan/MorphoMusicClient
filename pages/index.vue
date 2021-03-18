@@ -4,11 +4,28 @@
       <div class="text-center mb-5">
         <h1>Morphomusic</h1>
         <p>あなたの音楽の幅を広げるLINE Bot</p>
+        <div
+          class="line-it-button"
+          data-lang="ja"
+          data-type="friend"
+          data-lineid="@748mkzdd"
+          style="display: none"
+        ></div>
       </div>
     </v-col>
   </v-row>
 </template>
 
 <script>
-export default {}
+export default {
+  head: {
+    script: [
+      {
+        src:
+          'https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js',
+        body: true,
+      },
+    ],
+  },
+}
 </script>
