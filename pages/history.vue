@@ -11,7 +11,7 @@
         </v-avatar>
       </v-col>
     </v-row>
-    <p class="text-center">
+    <p v-if="isLoggedin" class="text-center">
       <strong>{{ displayName }}</strong
       >さんの履歴
     </p>
