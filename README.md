@@ -1,6 +1,6 @@
 # Morphomusic Client
 
-LIFF app (with Nuxt.js) for Morphomusic.
+LIFF app (with Nuxt.js) for Morphomusic.  
 The backend app repository is [here](https://github.com/Taito-Code/MorphoMusicBackend).
 
 ## Build Setup
