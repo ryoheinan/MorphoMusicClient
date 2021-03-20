@@ -5,7 +5,7 @@
         <nuxt />
       </v-container>
     </v-main>
-    <v-footer class="light-green">
+    <v-footer class="orange accent-1">
       <v-col class="text-center" cols="12"
         >&copy; {{ new Date().getFullYear() }} Morphomusic Team</v-col
       >
