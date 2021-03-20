@@ -19,7 +19,7 @@
       <v-btn v-if="!isinLine" depressed color="primary" @click="lineLogout">
         LOGOUT
       </v-btn>
-      <v-row>
+      <v-row v-if="songsData">
         <v-col v-for="n in 20" :key="n" cols="12" sm="6" md="4">
           <v-card color="#952175" dark>
             <div class="d-flex flex-no-wrap justify-space-between">
@@ -79,6 +79,7 @@ export default {
       idToken: '',
       liffErr: false,
       liffErrtext: '',
+      songsData: null,
     }
   },
   head: {
@@ -111,6 +112,7 @@ export default {
       if (liff.isLoggedIn()) {
         this.isLoggedin = true
         this.getProfile()
+        this.getData()
       } else {
         liff.login()
       }
@@ -127,6 +129,20 @@ export default {
           this.liffErr = true
           this.liffErrtext = 'ユーザー情報の取得に失敗しました'
         })
+    },
+    async getData() {
+      const url = 'https://morphomusic.herokuapp.com/'
+      const data = await this.$axios.$get(url, {
+        headers: {
+          Authorization: `Idtoken ${this.idToken}`,
+        },
+      })
+      const obj = JSON.parse(JSON.stringify(data))
+      if (obj.status === 'failed') {
+        alert('情報が取得できませんでした')
+      } else {
+        this.songsData = obj.songs
+      }
     },
     // 開発用
     lineLogout() {
