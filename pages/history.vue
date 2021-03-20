@@ -20,13 +20,21 @@
         LOGOUT
       </v-btn>
       <v-row v-if="songsData">
-        <v-col v-for="n in 20" :key="n" cols="12" sm="6" md="4">
-          <v-card color="#952175" dark>
+        <v-col
+          v-for="item in songsData"
+          :key="item.song_name"
+          cols="12"
+          sm="6"
+          md="4"
+        >
+          <v-card>
             <div class="d-flex flex-no-wrap justify-space-between">
               <div>
-                <v-card-title class="headline">Halcyon Days</v-card-title>
+                <v-card-title class="headline">{{
+                  item.song_name
+                }}</v-card-title>
 
-                <v-card-subtitle>Ellie Goulding</v-card-subtitle>
+                <v-card-subtitle>{{ item.artist_name }}</v-card-subtitle>
 
                 <v-card-actions>
                   <v-btn
@@ -36,8 +44,9 @@
                     height="40px"
                     right
                     width="40px"
+                    @click="buyMusic(item.buy_url)"
                   >
-                    <v-icon>mdi-play</v-icon>
+                    <v-icon>mdi-shopping-music</v-icon>
                   </v-btn>
                 </v-card-actions>
               </div>
@@ -143,6 +152,12 @@ export default {
       } else {
         this.songsData = obj.songs
       }
+    },
+    buyMusic(link) {
+      liff.openWindow({
+        url: link,
+        external: true,
+      })
     },
     // 開発用
     lineLogout() {
