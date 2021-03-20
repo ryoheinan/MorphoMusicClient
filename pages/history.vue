@@ -16,9 +16,6 @@
         <strong>{{ displayName }}</strong
         >さんの履歴
       </p>
-      <v-btn v-if="!isinLine" depressed color="primary" @click="lineLogout">
-        LOGOUT
-      </v-btn>
       <v-row v-if="songsData">
         <v-col v-for="item in songsData" :key="item.id" cols="12" sm="6" md="4">
           <v-card elevation="3" class="text-center">
@@ -77,10 +74,10 @@ export default {
     if (process.client) {
       if (liff.isInClient()) {
         this.isinLine = true
-      } /* else {
+      } else {
         this.liffErr = true
         this.liffErrtext = 'LINEアプリ内で表示してください'
-      } */
+      }
       liff
         .init({
           liffId: process.env.LIFFID,
@@ -137,10 +134,6 @@ export default {
         url: link,
         external: true,
       })
-    },
-    // 開発用
-    lineLogout() {
-      liff.logout()
     },
   },
 }
