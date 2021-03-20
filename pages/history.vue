@@ -20,43 +20,22 @@
         LOGOUT
       </v-btn>
       <v-row v-if="songsData">
-        <v-col
-          v-for="item in songsData"
-          :key="item.song_name"
-          cols="12"
-          sm="6"
-          md="4"
-        >
-          <v-card>
-            <div class="d-flex flex-no-wrap justify-space-between">
-              <div>
-                <v-card-title class="headline">{{
-                  item.song_name
-                }}</v-card-title>
-
-                <v-card-subtitle>{{ item.artist_name }}</v-card-subtitle>
-
-                <v-card-actions>
-                  <v-btn
-                    class="ml-2 mt-3"
-                    fab
-                    icon
-                    height="40px"
-                    right
-                    width="40px"
-                    @click="buyMusic(item.buy_url)"
-                  >
-                    <v-icon>mdi-shopping-music</v-icon>
-                  </v-btn>
-                </v-card-actions>
-              </div>
-
-              <v-avatar class="ma-3" size="125" tile>
-                <v-img
-                  src="https://cdn.vuetifyjs.com/images/cards/halcyon.png"
-                ></v-img>
-              </v-avatar>
-            </div>
+        <v-col v-for="item in songsData" :key="item.id" cols="12" sm="6" md="4">
+          <v-card elevation="3" class="text-center">
+            <v-avatar class="ma-3" size="200" tile>
+              <v-img :src="item.artwork_url"></v-img>
+            </v-avatar>
+            <h2>{{ item.song_name }}</h2>
+            <v-card-subtitle>{{ item.artist_name }}</v-card-subtitle>
+            <v-btn
+              class="mb-3"
+              color="red accent-3"
+              dark
+              @click="buyMusic(item.buy_url)"
+            >
+              Buy
+              <v-icon dark right> mdi-music-circle-outline </v-icon>
+            </v-btn>
           </v-card>
         </v-col>
       </v-row>
