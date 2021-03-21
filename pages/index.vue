@@ -7,13 +7,13 @@
         </v-avatar>
         <h1>Morphomusic</h1>
         <p>あなたの音楽の幅を広げるLINE Bot</p>
-        <div
-          class="line-it-button"
-          data-lang="ja"
-          data-type="friend"
-          data-lineid="@748mkzdd"
-          style="display: none"
-        ></div>
+        <a href="https://lin.ee/Wg3Fqsy"
+          ><img
+            src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png"
+            alt="LINE友だち追加"
+            height="36"
+            border="0"
+        /></a>
       </div>
     </v-col>
   </v-row>
@@ -21,14 +21,6 @@
 
 <script>
 export default {
-  head: {
-    script: [
-      {
-        src:
-          'https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js',
-        body: true,
-      },
-    ],
-  },
+  head: {},
 }
 </script>
