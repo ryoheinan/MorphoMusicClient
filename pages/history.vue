@@ -24,13 +24,8 @@
             </v-avatar>
             <h2>{{ item.song_name }}</h2>
             <v-card-subtitle>{{ item.artist_name }}</v-card-subtitle>
-            <v-btn
-              class="mb-3"
-              color="red accent-3"
-              dark
-              @click="buyMusic(item.buy_url)"
-            >
-              Buy
+            <v-btn class="mb-3 play-btn" dark @click="buyMusic(item.buy_url)">
+              Play
               <v-icon dark right> mdi-music-circle-outline </v-icon>
             </v-btn>
           </v-card>
@@ -46,6 +41,13 @@
     </template>
   </v-container>
 </template>
+
+<style scoped>
+.play-btn {
+  background-color: #1db954;
+  color: #ffffff;
+}
+</style>
 
 <script>
 let liff
