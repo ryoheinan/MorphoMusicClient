@@ -136,7 +136,7 @@ export default {
 
 <style scoped>
 .v-btn.play-btn {
-  background-color: #1db954;
+  background-color: #1db954 !important;
   color: #ffffff;
 }
 </style>
