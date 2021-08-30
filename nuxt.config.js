@@ -1,10 +1,13 @@
+// import fs from 'fs'
+// import path from 'path'
+
 require('dotenv').config()
 const { LIFFID } = process.env
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
-
+  ssr: false,
   generate: {
     fallback: true,
   },
@@ -54,6 +57,16 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
+
+  /*
+  For debug
+  server: {
+    https: {
+      key: fs.readFileSync(path.join(__dirname, './localhost-key.pem')),
+      cert: fs.readFileSync(path.join(__dirname, './localhost.pem')),
+    },
+  },
+  */
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
