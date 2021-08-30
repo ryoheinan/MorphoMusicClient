@@ -24,9 +24,9 @@
             </v-avatar>
             <h2>{{ item.song_name }}</h2>
             <v-card-subtitle>{{ item.artist_name }}</v-card-subtitle>
-            <v-btn class="mb-3 play-btn" dark @click="buyMusic(item.buy_url)">
-              Play
-              <v-icon dark right> mdi-spotify </v-icon>
+            <v-btn class="mb-3 play-btn" @click="buyMusic(item.buy_url)">
+              PLAY
+              <v-icon right>mdi-spotify</v-icon>
             </v-btn>
           </v-card>
         </v-col>
@@ -135,7 +135,7 @@ export default {
 </script>
 
 <style scoped>
-.play-btn {
+.v-btn.play-btn {
   background-color: #1db954;
   color: #ffffff;
 }
