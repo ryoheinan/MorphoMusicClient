@@ -7,7 +7,6 @@ const { LIFFID } = process.env
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
-  ssr: false,
   generate: {
     fallback: true,
   },
